@@ -22,7 +22,6 @@ public class StudentControllers {
     @ResponseBody
     public String getStudentByFistName(@RequestParam String name){
         return studentRepository.getStudentByFirstName(name).toString();
-        // http://localhost:8080/get_student_by_first_name?name=Gosha
     }
 
     @GetMapping("/delete_student_by_first_name")
@@ -30,7 +29,6 @@ public class StudentControllers {
     public String deleteStudentByFirstName(@RequestParam String firstName){
         studentRepository.deleteStudentByFirstName(firstName);
         return "Student with " + firstName + " was successfully deleted";
-//        http://localhost:8080/delete_student_by_first_name?firstName=Gosha
     }
 
     @PostMapping("/post_student")
@@ -38,21 +36,12 @@ public class StudentControllers {
     public String postStudent(@RequestBody Student student){
         studentRepository.addStudent(student);
         return "Success";
-        //        http://localhost:8080/post_student?firstName=Gosha&lastName=Alexandridi&middleName=Dmitrievich
-//        http://localhost:8080/post_student?firstName=Sasha&lastName=Petrov&middleName=Maksimovich
     }
-
-
-
 
     @GetMapping("/get_all_student")
     @ResponseBody
     public List<Student> getAllStudent(){
         return studentRepository.getAllStudents();
-//        http://localhost:8080/get_all_student
     }
-
-
-
 
 }
